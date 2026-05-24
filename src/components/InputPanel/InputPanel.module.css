@@ -1,0 +1,224 @@
+.inputPanel {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  height: 100%;
+}
+
+.section {
+  background: var(--color-bg-secondary);
+  border-radius: 12px;
+  padding: 1rem;
+  border: 1px solid var(--color-border);
+}
+
+.sectionTitle {
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: var(--color-text-primary);
+  margin-bottom: 0.75rem;
+}
+
+/* 预设场景 */
+.scenarioGrid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 0.5rem;
+}
+
+.scenarioBtn {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 0.75rem;
+  background: var(--color-bg-primary);
+  border: 2px solid transparent;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.2s;
+  text-align: left;
+}
+
+.scenarioBtn:hover {
+  border-color: var(--color-accent);
+  background: rgba(59, 130, 246, 0.1);
+}
+
+.scenarioBtn.selected {
+  border-color: var(--color-accent);
+  background: rgba(59, 130, 246, 0.15);
+}
+
+.scenarioName {
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: var(--color-text-primary);
+}
+
+.scenarioDesc {
+  font-size: 0.75rem;
+  color: var(--color-text-secondary);
+  margin-top: 0.25rem;
+}
+
+/* 聊天记录输入 */
+.chatInput {
+  width: 100%;
+  padding: 0.75rem;
+  background: var(--color-bg-primary);
+  border: 1px solid var(--color-border);
+  border-radius: 8px;
+  color: var(--color-text-primary);
+  font-size: 0.875rem;
+  line-height: 1.6;
+  resize: vertical;
+  font-family: inherit;
+}
+
+.chatInput:focus {
+  outline: none;
+  border-color: var(--color-accent);
+}
+
+.chatInput::placeholder {
+  color: var(--color-text-secondary);
+}
+
+.charCount {
+  font-size: 0.75rem;
+  color: var(--color-text-secondary);
+  text-align: right;
+  margin-top: 0.25rem;
+}
+
+/* 上传区域 */
+.uploadSection {
+  border: 2px dashed var(--color-border);
+  transition: all 0.2s;
+}
+
+.uploadSection.dragOver {
+  border-color: var(--color-accent);
+  background: rgba(59, 130, 246, 0.1);
+}
+
+.uploadHint {
+  font-size: 0.8rem;
+  color: var(--color-text-secondary);
+  margin-bottom: 0.75rem;
+}
+
+.uploadButtons {
+  display: flex;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+}
+
+.uploadBtn {
+  padding: 0.5rem 1rem;
+  background: var(--color-bg-primary);
+  border: 1px solid var(--color-border);
+  border-radius: 6px;
+  font-size: 0.8rem;
+  color: var(--color-text-primary);
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.uploadBtn:hover {
+  border-color: var(--color-accent);
+  background: rgba(59, 130, 246, 0.1);
+}
+
+.uploadStatus {
+  margin-top: 0.75rem;
+  padding: 0.5rem;
+  border-radius: 6px;
+  font-size: 0.8rem;
+}
+
+.uploadStatus.success {
+  background: rgba(34, 197, 94, 0.1);
+  color: var(--color-risk-low);
+}
+
+.uploadStatus.error {
+  background: rgba(239, 68, 68, 0.1);
+  color: var(--color-risk-high);
+}
+
+.dataSourceStatus {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-top: 0.75rem;
+  padding-top: 0.75rem;
+  border-top: 1px solid var(--color-border);
+  font-size: 0.8rem;
+}
+
+.statusLabel {
+  color: var(--color-text-secondary);
+}
+
+.statusValue {
+  color: var(--color-accent);
+  font-weight: 500;
+}
+
+/* 分析按钮 */
+.analyzeBtn {
+  width: 100%;
+  padding: 1rem;
+  background: linear-gradient(135deg, var(--color-accent), #2563eb);
+  border: none;
+  border-radius: 12px;
+  font-size: 1rem;
+  font-weight: 600;
+  color: white;
+  cursor: pointer;
+  transition: all 0.3s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+}
+
+.analyzeBtn:hover:not(:disabled) {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 20px rgba(59, 130, 246, 0.4);
+}
+
+.analyzeBtn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.analyzeBtn.analyzing {
+  background: var(--color-bg-secondary);
+}
+
+.spinner {
+  width: 18px;
+  height: 18px;
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  border-top-color: white;
+  border-radius: 50%;
+  animation: spin 0.8s linear infinite;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* 上传数据信息 */
+.uploadedDataInfo {
+  margin-top: 0.5rem;
+  padding: 0.5rem;
+  background: rgba(59, 130, 246, 0.1);
+  border-radius: 6px;
+  font-size: 0.8rem;
+  color: var(--color-accent);
+}

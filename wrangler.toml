@@ -1,0 +1,7 @@
+# Cloudflare Pages Configuration
+compatibility_date = "2024-09-23"
+
+# 环境变量配置（部署时通过 Cloudflare Dashboard 设置）
+# LLM_API_KEY = "your-api-key"
+# LLM_BASE_URL = "https://api.example.com"
+# LLM_MODEL = "mimo-7b"

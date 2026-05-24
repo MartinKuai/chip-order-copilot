@@ -1,0 +1,453 @@
+.outputPanel {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  height: 100%;
+  overflow-y: auto;
+}
+
+/* 空状态 */
+.emptyState {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  padding: 2rem;
+  text-align: center;
+}
+
+.emptyIcon {
+  font-size: 4rem;
+  margin-bottom: 1rem;
+  opacity: 0.5;
+}
+
+.emptyTitle {
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: var(--color-text-primary);
+  margin-bottom: 0.5rem;
+}
+
+.emptyText {
+  font-size: 0.875rem;
+  color: var(--color-text-secondary);
+  margin-bottom: 1.5rem;
+}
+
+.featureList {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.featureItem {
+  font-size: 0.875rem;
+  color: var(--color-text-secondary);
+}
+
+/* 加载状态 */
+.loadingState {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  gap: 1rem;
+}
+
+.loadingSpinner {
+  width: 48px;
+  height: 48px;
+  border: 3px solid var(--color-border);
+  border-top-color: var(--color-accent);
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.loadingText {
+  font-size: 1rem;
+  font-weight: 500;
+  color: var(--color-text-primary);
+}
+
+.loadingSubtext {
+  font-size: 0.8rem;
+  color: var(--color-text-secondary);
+}
+
+/* 风险等级 */
+.riskLevel {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 1rem;
+  border-radius: 12px;
+  font-weight: 600;
+}
+
+.riskLevel.high {
+  background: rgba(239, 68, 68, 0.15);
+  border: 1px solid var(--color-risk-high);
+}
+
+.riskLevel.medium {
+  background: rgba(245, 158, 11, 0.15);
+  border: 1px solid var(--color-risk-medium);
+}
+
+.riskLevel.low {
+  background: rgba(34, 197, 94, 0.15);
+  border: 1px solid var(--color-risk-low);
+}
+
+.riskLevel.safe {
+  background: rgba(34, 197, 94, 0.15);
+  border: 1px solid var(--color-risk-low);
+}
+
+.riskIcon {
+  font-size: 1.5rem;
+}
+
+.riskLabel {
+  font-size: 1rem;
+  color: var(--color-text-primary);
+}
+
+/* 通用区块 */
+.section {
+  background: var(--color-bg-secondary);
+  border-radius: 12px;
+  padding: 1rem;
+  border: 1px solid var(--color-border);
+}
+
+.sectionTitle {
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: var(--color-text-primary);
+  margin-bottom: 0.75rem;
+}
+
+/* 实体列表 */
+.entityList {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.entityCard {
+  background: var(--color-bg-primary);
+  border-radius: 8px;
+  padding: 0.75rem;
+}
+
+.entityHeader {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.partNumber {
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--color-accent);
+}
+
+.quantity {
+  font-size: 0.875rem;
+  color: var(--color-text-primary);
+}
+
+.specialReqs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-top: 0.5rem;
+}
+
+.reqTag {
+  padding: 0.25rem 0.5rem;
+  background: rgba(245, 158, 11, 0.15);
+  border-radius: 4px;
+  font-size: 0.75rem;
+  color: var(--color-risk-medium);
+}
+
+.delivery {
+  font-size: 0.8rem;
+  color: var(--color-text-secondary);
+  margin-top: 0.5rem;
+}
+
+.missingInfo {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-top: 0.75rem;
+  padding-top: 0.75rem;
+  border-top: 1px solid var(--color-border);
+}
+
+.missingLabel {
+  font-size: 0.8rem;
+  color: var(--color-text-secondary);
+}
+
+.missingTag {
+  padding: 0.25rem 0.5rem;
+  background: rgba(239, 68, 68, 0.15);
+  border-radius: 4px;
+  font-size: 0.75rem;
+  color: var(--color-risk-high);
+}
+
+/* 风险列表 */
+.riskList {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.riskItem {
+  background: var(--color-bg-primary);
+  border-radius: 8px;
+  padding: 0.75rem;
+  border-left: 3px solid;
+}
+
+.riskItem.high {
+  border-left-color: var(--color-risk-high);
+}
+
+.riskItem.medium {
+  border-left-color: var(--color-risk-medium);
+}
+
+.riskItem.low {
+  border-left-color: var(--color-risk-low);
+}
+
+.riskHeader {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.riskLevelBadge {
+  padding: 0.125rem 0.375rem;
+  border-radius: 4px;
+  font-size: 0.7rem;
+  font-weight: 600;
+  color: white;
+}
+
+.riskItem.high .riskLevelBadge {
+  background: var(--color-risk-high);
+}
+
+.riskItem.medium .riskLevelBadge {
+  background: var(--color-risk-medium);
+}
+
+.riskItem.low .riskLevelBadge {
+  background: var(--color-risk-low);
+}
+
+.riskCategory {
+  font-size: 0.75rem;
+  color: var(--color-text-secondary);
+}
+
+.riskSource {
+  font-size: 0.7rem;
+  padding: 0.125rem 0.375rem;
+  background: rgba(59, 130, 246, 0.15);
+  border-radius: 4px;
+  color: var(--color-accent);
+}
+
+.riskMessage {
+  font-size: 0.875rem;
+  color: var(--color-text-primary);
+  margin-bottom: 0.5rem;
+  line-height: 1.5;
+}
+
+.riskSuggestion {
+  font-size: 0.8rem;
+  color: var(--color-text-secondary);
+  margin-bottom: 0.25rem;
+}
+
+.riskOwner {
+  font-size: 0.75rem;
+  color: var(--color-text-secondary);
+}
+
+/* Checklist */
+.checklist {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.checklistItem {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.5rem;
+  background: var(--color-bg-primary);
+  border-radius: 6px;
+}
+
+.checklistItem.done {
+  opacity: 0.6;
+}
+
+.checklistItem.blocked {
+  opacity: 0.8;
+}
+
+.checkIcon {
+  width: 20px;
+  height: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.875rem;
+}
+
+.checklistItem.done .checkIcon {
+  color: var(--color-risk-low);
+}
+
+.checklistItem.blocked .checkIcon {
+  color: var(--color-risk-high);
+}
+
+.checkText {
+  flex: 1;
+  font-size: 0.8rem;
+  color: var(--color-text-primary);
+}
+
+.priorityBadge {
+  padding: 0.125rem 0.375rem;
+  border-radius: 4px;
+  font-size: 0.65rem;
+  font-weight: 500;
+}
+
+.priorityBadge.high {
+  background: rgba(239, 68, 68, 0.15);
+  color: var(--color-risk-high);
+}
+
+.priorityBadge.medium {
+  background: rgba(245, 158, 11, 0.15);
+  color: var(--color-risk-medium);
+}
+
+.priorityBadge.low {
+  background: rgba(34, 197, 94, 0.15);
+  color: var(--color-risk-low);
+}
+
+/* 交接卡片 */
+.handoverHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 0.75rem;
+}
+
+.handoverHeader .sectionTitle {
+  margin-bottom: 0;
+}
+
+.copyButtons {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.copyBtn,
+.copyBtnSecondary {
+  padding: 0.5rem 1rem;
+  border-radius: 6px;
+  font-size: 0.8rem;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.copyBtn {
+  background: var(--color-accent);
+  border: none;
+  color: white;
+}
+
+.copyBtn:hover {
+  background: #2563eb;
+}
+
+.copyBtnSecondary {
+  background: transparent;
+  border: 1px solid var(--color-border);
+  color: var(--color-text-primary);
+}
+
+.copyBtnSecondary:hover {
+  border-color: var(--color-accent);
+}
+
+.handoverCard {
+  background: var(--color-bg-primary);
+  border-radius: 8px;
+  padding: 1rem;
+  font-family: 'Monaco', 'Menlo', 'Consolas', monospace;
+  font-size: 0.8rem;
+  line-height: 1.6;
+  color: var(--color-text-primary);
+  white-space: pre-wrap;
+  word-break: break-word;
+  max-height: 400px;
+  overflow-y: auto;
+}
+
+/* 降级提示 */
+.fallbackBanner {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.75rem 1rem;
+  background: rgba(59, 130, 246, 0.15);
+  border: 1px solid var(--color-accent);
+  border-radius: 8px;
+  font-size: 0.875rem;
+}
+
+.fallbackIcon {
+  font-size: 1rem;
+}
+
+.fallbackText {
+  color: var(--color-accent);
+}
+
+/* 复制按钮状态 */
+.copyBtn.copied,
+.copyBtnSecondary.copied {
+  background: var(--color-risk-low);
+  border-color: var(--color-risk-low);
+  color: white;
+}

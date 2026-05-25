@@ -223,6 +223,9 @@
   border-radius: 8px;
   padding: 0.75rem;
   border-left: 3px solid;
+  min-width: 0;
+  overflow-wrap: anywhere;
+  word-break: break-word;
 }
 
 .riskItem.high {
@@ -242,6 +245,9 @@
   align-items: center;
   gap: 0.5rem;
   margin-bottom: 0.5rem;
+  min-width: 0;
+  overflow-wrap: anywhere;
+  word-break: break-word;
 }
 
 .riskLevelBadge {
@@ -282,17 +288,26 @@
   color: var(--color-text-primary);
   margin-bottom: 0.5rem;
   line-height: 1.5;
+  min-width: 0;
+  overflow-wrap: anywhere;
+  word-break: break-word;
 }
 
 .riskSuggestion {
   font-size: 0.8rem;
   color: var(--color-text-secondary);
   margin-bottom: 0.25rem;
+  min-width: 0;
+  overflow-wrap: anywhere;
+  word-break: break-word;
 }
 
 .riskOwner {
   font-size: 0.75rem;
   color: var(--color-text-secondary);
+  min-width: 0;
+  overflow-wrap: anywhere;
+  word-break: break-word;
 }
 
 /* Checklist */
@@ -309,6 +324,9 @@
   padding: 0.5rem;
   background: var(--color-bg-primary);
   border-radius: 6px;
+  min-width: 0;
+  overflow-wrap: anywhere;
+  word-break: break-word;
 }
 
 .checklistItem.done {
@@ -340,6 +358,9 @@
   flex: 1;
   font-size: 0.8rem;
   color: var(--color-text-primary);
+  min-width: 0;
+  overflow-wrap: anywhere;
+  word-break: break-word;
 }
 
 .priorityBadge {
@@ -422,6 +443,8 @@
   word-break: break-word;
   max-height: 400px;
   overflow-y: auto;
+  min-width: 0;
+  overflow-wrap: anywhere;
 }
 
 /* 降级提示 */
@@ -450,4 +473,12 @@
   background: var(--color-risk-low);
   border-color: var(--color-risk-low);
   color: white;
+}
+
+@media (max-width: 768px) {
+  .riskHeader,
+  .handoverHeader,
+  .copyButtons {
+    flex-wrap: wrap;
+  }
 }

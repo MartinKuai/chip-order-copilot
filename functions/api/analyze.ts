@@ -30,9 +30,10 @@ interface Env {
 }
 
 interface RequestBody {
-  chat_record: string;
-  data_source: {
-    type: 'BUILTIN' | 'CSV' | 'JSON';
+  chat_record?: string;
+  message?: string;
+  data_source?: {
+    type?: 'BUILTIN' | 'CSV' | 'JSON';
     scenario_id?: string;
     orders?: OrderLedger[];
     inventory?: InventoryRecord[];
@@ -498,13 +499,15 @@ export const onRequestPost = async (context: PagesContext) => {
   try {
     const body = (await context.request.json()) as RequestBody;
 
-    if (!body.chat_record) {
+    const chatRecord = body.chat_record || body.message;
+
+    if (!chatRecord) {
       return new Response(
         JSON.stringify({
           success: false,
-          error: { code: 'INVALID_INPUT', message: '缺少 chat_record 字段' },
+          error: { code: 'INVALID_INPUT', message: '缺少 chat_record 或 message 字段' },
         }),
-        { status: 400, headers: { 'Content-Type': 'application/json' } }
+        { status: 400, headers: { 'Content-Type': 'application/json; charset=utf-8' } }
       );
     }
 
@@ -531,7 +534,7 @@ export const onRequestPost = async (context: PagesContext) => {
 
     if (context.env.LLM_API_KEY && context.env.LLM_API_KEY.trim() !== '') {
       llmUsed = true;
-      const llmResult = await callMimoLLM(body.chat_record, context.env);
+      const llmResult = await callMimoLLM(chatRecord, context.env);
       if (llmResult.success && llmResult.data) {
         const valResult = validateLLMExtractedOrder(llmResult.data);
         if (valResult.ok && valResult.value) {
@@ -581,16 +584,16 @@ export const onRequestPost = async (context: PagesContext) => {
         } else {
           analysisMode = 'RULES_FALLBACK';
           fallbackReason = `数据校验失败: ${valResult.reason}`;
-          extracted = extractOrderInfo(body.chat_record);
+          extracted = extractOrderInfo(chatRecord);
         }
       } else {
         analysisMode = 'RULES_FALLBACK';
         fallbackReason = `模型调用异常: ${llmResult.reason}`;
-        extracted = extractOrderInfo(body.chat_record);
+        extracted = extractOrderInfo(chatRecord);
       }
     } else {
       analysisMode = 'RULES_ONLY';
-      extracted = extractOrderInfo(body.chat_record);
+      extracted = extractOrderInfo(chatRecord);
     }
 
     const assessment = runRiskEngine(extracted, orders, inventory, prices);
@@ -609,7 +612,7 @@ export const onRequestPost = async (context: PagesContext) => {
           duration_ms: Date.now() - startTime,
         },
       }),
-      { status: 200, headers: { 'Content-Type': 'application/json' } }
+      { status: 200, headers: { 'Content-Type': 'application/json; charset=utf-8' } }
     );
 
   } catch (error) {
@@ -619,7 +622,7 @@ export const onRequestPost = async (context: PagesContext) => {
         success: false,
         error: { code: 'INTERNAL_ERROR', message: '服务器内部错误' },
       }),
-      { status: 500, headers: { 'Content-Type': 'application/json' } }
+      { status: 500, headers: { 'Content-Type': 'application/json; charset=utf-8' } }
     );
   }
 };

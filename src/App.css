@@ -156,6 +156,8 @@
 @media (max-width: 1280px) {
   .workspace {
     grid-template-columns: 1fr;
+    height: auto;
+    min-height: 0;
   }
 
   .inputSection {
